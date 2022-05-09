@@ -16,6 +16,7 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
+
     <div class="container mt-5">
         
         <form class="input-group mb-3" id="form">
@@ -26,30 +27,40 @@
 
         <div class="weather">
 
-            <h1 class="city" id="city">Kyiv</h1>
-            <p id="date"></p>
-            <span class="main" id="main">clear</span>
+            <div class="row">
+                <div class="col-7">
+                    <h1 class="city" id="city">Kyiv</h1>
+                    <p id="date"></p>
+                    <span class="main" id="main">clear</span>
+                </div>
+
+                <div class="col-5">
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
+                </div>
+            </div>
+
 
 
             <div class="row">
                 <div class="col-5 left">
-                    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
                     <span class="tem"> <span id="bigTem"> 20  </span><span id="cel" class="temperature">°C </span> <span id="far" class="temperature">°F</span> </span>
-                    
                 </div>
 
                 <div class="col-7 pt-3 right">
 
                    
 
-                    <em>Precipitation: </em> <span class="info" id="recipitation">38%</span>
+                    <em>Humidity: </em> <span class="info" id="recipitation">38%</span>
                        <br>
                    <em> Wind: </em>   <span class="info" id="wind">1km</span>
                 </p>
                 </div>
             </div>
 
+
         </div>
+
+        <h6 class="text-center pt-5">Made by Margo Budenkova</h6>
 
     </div>
 

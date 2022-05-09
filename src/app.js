@@ -1,5 +1,9 @@
 let apiKey = '364ea10a9dce84c7e6e88f4ed5d11db3';
 
+let url = `https://api.openweathermap.org/data/2.5/weather?q=Kyiv&appid=${apiKey}&units=metric`
+
+axios.get(url).then(draw);
+
 function findCity(event){
     event.preventDefault();
     let city = document.getElementById('cityFind').value;
@@ -8,8 +12,13 @@ function findCity(event){
 
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${c}&appid=${apiKey}&units=metric`
 
-    axios.get(url).then(function(response){
-        document.getElementById('city').innerHTML = c;
+    axios.get(url).then(draw);
+
+}
+
+function draw(response){
+
+        document.getElementById('city').innerHTML = response.data.name;
 
         document.getElementById('bigTem').innerHTML = Math.round(response.data.main.temp);
 
@@ -21,7 +30,7 @@ function findCity(event){
 
         document.getElementById('wind').innerHTML = `${Math.round(response.data.wind.speed)}km`
 
-    })
+         document.querySelector('img').setAttribute('src', `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 }
 
 document.getElementById('button').addEventListener('click', findCity);
@@ -37,25 +46,28 @@ input.addEventListener("keypress", function(event) {
 
 document.getElementById('cel').addEventListener('click', function(event){
     event.preventDefault();
-    let city = document.getElementById('city').innerHTML.toLowerCase();
-    let t = weather[`${city}`].temp;
+    let city = document.getElementById('city').innerHTML;
+    console.log(city);
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
 
-    console.log(t);
-
-    document.getElementById('bigTem').innerHTML = Math.round(t);
+    axios.get(url).then(function(response){
+        console.log(response);
+        document.querySelector('#bigTem').innerHTML = `${Math.round(response.data.main.temp)} `;
+    });
+    
 })
 
 document.getElementById('far').addEventListener('click', function(event){
     event.preventDefault();
-    let city = document.getElementById('city').innerHTML.toLowerCase();
+    let city = document.getElementById('city').innerHTML;
     console.log(city);
-    console.log(weather[`${city}`])
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
 
-    let temperature = weather[`${city}`].temp * 1.8 + 32; 
-
-    console.log(temperature);
-
-    document.querySelector('#bigTem').innerHTML = `${Math.round(temperature)} `;
+    axios.get(url).then(function(response){
+        console.log(response);
+        document.querySelector('#bigTem').innerHTML = `${Math.round(response.data.main.temp)} `;
+    });
+    
 })
 
 
