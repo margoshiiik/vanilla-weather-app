@@ -1,4 +1,107 @@
-h1{
-    color: aqua;
+.container{
+    width: 50%; 
+    height: 560px;
+    background: radial-gradient(343px at 46.3% 47.5%, rgb(242, 242, 242) 0%, rgb(241, 241, 241) 72.9%);
+    border-radius: 30px;
+    border: 1px solid rgb(180, 180, 180);
+    padding-bottom:15px;
+}
+
+.input-group {
+    margin-top: 30px;
+    width: 80%;
+    margin-left: 10%;
+}
+
+body{
+    font-family: 'Libre Bodoni', serif;
+}
+
+
+p{
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.form-control {
+    line-height: 2;
+}
+
+
+.weather{
+    height: 250px;
+    width: 70%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 100px;
+    background-color: white;
+}
+
+.right{
     text-align: center;
+}
+
+.left{
+    text-align: center;
+    padding-left: 10%;
+}
+
+.main{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+h2{
+    display: inline;
+}
+
+.weather{
+    padding: 20px;
+}
+
+
+.card{
+    padding: 10px;
+    border-radius: 20px;
+    margin: 2px;
+    height: 150px;
+}
+
+.emoji{
+    font-size: 30px;
+}
+
+span{
+    font-size: 25px;
+}
+
+.card:hover{
+    background-color: rgb(244, 244, 244);
+
+}
+
+.temperature{
+    font-size: 18px;
+    position: absolute;
+    color: rgb(115, 93, 255);
+}
+
+#bigTem{
+    font-size: 40px;
+}
+
+#far{
+    position: relative;
+}
+
+
+.temperature:hover{
+    color: rgb(83, 57, 252);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.info{
+    font-size: 17px;
+    font-weight: bold;
 }
