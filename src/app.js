@@ -16,7 +16,14 @@ function findCity(event){
 
 }
 
+function getForecast(coord){
+    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=${apiKey}&units=metric`;
+    
+    axios.get(url).then(drawForecast);
+}
+
 function draw(response){
+    console.log(response)
 
         document.getElementById('city').innerHTML = response.data.name;
 
@@ -28,9 +35,11 @@ function draw(response){
 
         document.getElementById('main').innerHTML = `${response.data.weather[0].main}`
 
-        document.getElementById('wind').innerHTML = `${Math.round(response.data.wind.speed)}km`
+        document.getElementById('wind').innerHTML = `${Math.round(response.data.wind.speed)} km/h`
 
-         document.querySelector('img').setAttribute('src', `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+        document.querySelector('img').setAttribute('src', `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+
+        getForecast(response.data.coord);
 }
 
 document.getElementById('button').addEventListener('click', findCity);
@@ -43,36 +52,41 @@ input.addEventListener("keypress", function(event) {
   }
 });
 
+function getDay(info){
+    let data = new Date(info*1000); 
+    let day = data.getDay();
+    let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']; 
 
-document.getElementById('cel').addEventListener('click', function(event){
-    event.preventDefault();
-    let city = document.getElementById('city').innerHTML;
-    console.log(city);
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+    return days[day];
 
-    axios.get(url).then(function(response){
-        console.log(response);
-        document.querySelector('#bigTem').innerHTML = `${Math.round(response.data.main.temp)} `;
+}
+
+function drawForecast(response){
+    console.log(response.data.daily);
+    let forecast = response.data.daily;
+    let div = document.querySelector('#forecast'); 
+    let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu'];
+
+    let inner = `<div class="row">`
+    forecast.forEach(function(day, index){
+        if(index<5){
+        inner += `<div class="col card text-center">
+                    
+        <h4>${getDay(day.dt)}</h4>
+        <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="" class="forecast-image">
+        <div class="forecast-temp">
+            <span class="temp-max">${Math.round(day.temp.max)}° | </span>
+            <span class="temp-min"> ${Math.round(day.temp.min)}°</span>
+        </div>
+
+       </div>`
+        }
     });
-    
-})
 
-document.getElementById('far').addEventListener('click', function(event){
-    event.preventDefault();
-    let city = document.getElementById('city').innerHTML;
-    console.log(city);
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
+    inner += `</div>`
 
-    axios.get(url).then(function(response){
-        console.log(response);
-        document.querySelector('#bigTem').innerHTML = `${Math.round(response.data.main.temp)} `;
-    });
-    
-})
-
-
-
-
+    div.innerHTML = inner;
+}
 
 function setDate(date){
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wendesday', 'Thursday', 'Friday', 'Saturday']; 
@@ -80,3 +94,5 @@ function setDate(date){
 }
 
 setDate(new Date());
+
+drawForecast();

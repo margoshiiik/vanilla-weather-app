@@ -1,6 +1,6 @@
 .container{
     width: 50%; 
-    height: 400px;
+    height: 560px;
     background: radial-gradient(343px at 46.3% 47.5%, rgb(242, 242, 242) 0%, rgb(241, 241, 241) 72.9%);
     border-radius: 30px;
     border: 1px solid rgb(180, 180, 180);
@@ -94,7 +94,6 @@ span{
 .temperature{
     font-size: 18px;
     position: absolute;
-    color: rgb(115, 93, 255);
 }
 
 #bigTem{
@@ -102,19 +101,8 @@ span{
     padding-top: 15px;
 }
 
-#far{
-    position: relative;
-}
-
 .tem{
     padding-left: 10px;
-}
-
-
-.temperature:hover{
-    color: rgb(83, 57, 252);
-    text-decoration: underline;
-    cursor: pointer;
 }
 
 .info{
@@ -126,4 +114,27 @@ img{
     margin-left: 0px;
     width: 100px;
     height: 100px;
+}
+
+.temp-min, .temp-max{
+    font-size: 20px;
+}
+
+.forecast-image{
+    width: 70px;
+    height: 70px;
+    display: block;
+    margin: 0 auto;
+}
+
+.temp-max{
+    color: rgb(88, 88, 88);
+}
+
+.temp-min{
+    color: rgb(137, 137, 137);
+}
+
+h4{
+    color: rgb(137, 137, 137);
 }
