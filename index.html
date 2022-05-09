@@ -21,26 +21,26 @@
         <form class="input-group mb-3" id="form">
             <input type="text" class="form-control" id="cityFind" placeholder="Enter the city">
             <button class="btn btn-outline-secondary" type="button" id="button">Find</button>
-            <button class="btn btn-outline-secondary" type="button" id="button2">Current</button>
         </form>
         <br>
 
-        <div class="weather text-center">
+        <div class="weather">
 
             <h1 class="city" id="city">Kyiv</h1>
+            <p id="date"></p>
+            <span class="main" id="main">clear</span>
+
+
             <div class="row">
                 <div class="col-5 left">
-                   
-                   
-                    <h1 class="tem pt-2"> <span id="bigTem"> 20  </span><span id="cel" class="temperature">°C </span> <span id="far" class="temperature">°F</span> </h1>
-                    <span class="main" id="main">clear</span>
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
+                    <span class="tem"> <span id="bigTem"> 20  </span><span id="cel" class="temperature">°C </span> <span id="far" class="temperature">°F</span> </span>
                     
                 </div>
 
-                <div class="col-7 right">
+                <div class="col-7 pt-3 right">
 
-                   <p id="date">
-                    </p>
+                   
 
                     <em>Precipitation: </em> <span class="info" id="recipitation">38%</span>
                        <br>

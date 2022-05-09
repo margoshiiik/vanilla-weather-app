@@ -34,31 +34,6 @@ input.addEventListener("keypress", function(event) {
   }
 });
 
-document.getElementById('button2').addEventListener('click', function(event){
-    event.preventDefault();
-    
-    navigator.geolocation.getCurrentPosition(function getPosition(position) {
-        let lat = position.coords.latitude;
-        let lon = position.coords.longitude;
-
-        let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
-
-        axios.get(url).then(function(response){
-            console.log(response.data);
-
-            document.getElementById('city').innerHTML = response.data.name;
-
-            document.getElementById('bigTem').innerHTML = Math.round(response.data.main.temp);
-   
-            document.getElementById('recipitation').innerHTML = `${response.data.main.humidity}%`
-
-            document.getElementById('main').innerHTML = `${response.data.weather[0].main}`
-
-            document.getElementById('wind').innerHTML = `${Math.round(response.data.wind.speed)}km`
-        })
-    })
-})
-
 
 document.getElementById('cel').addEventListener('click', function(event){
     event.preventDefault();

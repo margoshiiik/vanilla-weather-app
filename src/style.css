@@ -23,6 +23,19 @@ p{
     font-family: 'Ubuntu', sans-serif;
 }
 
+.city, #date, #main{
+    padding-left: 30px;
+}
+
+#date{
+    margin-top: -15px;
+    margin-bottom: -0px;
+}
+
+
+
+
+
 .form-control {
     line-height: 2;
 }
@@ -30,10 +43,10 @@ p{
 
 .weather{
     height: 250px;
-    width: 70%;
+    width: 80%;
     display: block;
     margin: 0 auto;
-    border-radius: 100px;
+    border-radius: 50px;
     background-color: white;
 }
 
@@ -42,13 +55,14 @@ p{
 }
 
 .left{
+    padding-top: 15px;
     text-align: center;
-    padding-left: 10%;
 }
 
 .main{
     font-size: 20px;
     text-transform: uppercase;
+    margin-top: -15px;
 }
 
 h2{
@@ -87,11 +101,16 @@ span{
 }
 
 #bigTem{
-    font-size: 40px;
+    font-size: 50px;
+    padding-top: 15px;
 }
 
 #far{
     position: relative;
+}
+
+.tem{
+    padding-left: 10px;
 }
 
 
@@ -104,4 +123,10 @@ span{
 .info{
     font-size: 17px;
     font-weight: bold;
+}
+
+img{
+    padding-left: -60px;
+    width: 60px;
+    height: 60px;
 }
